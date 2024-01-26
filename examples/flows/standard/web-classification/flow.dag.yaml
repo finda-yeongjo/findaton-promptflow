@@ -4,7 +4,7 @@ environment:
 inputs:
   url:
     type: string
-    default: 가장 높은 액수를 3개 뽑아줘
+    default: 가장 높은 금리를 6개 뽑아줘
 outputs:
   aiSearchOutput:
     type: string
@@ -19,9 +19,9 @@ nodes:
     type: code
     path: get_user_recommend_to_json.jinja2
   inputs:
-    deployment_name: my-gpt-4-love-donggyun
+    deployment_name: gpt-35-turbo
     max_tokens: 128
-    temperature: 0.2
+    temperature: 0.1
     user_request: ${inputs.url}
   connection: HOTBOARD
   api: chat
@@ -41,7 +41,7 @@ nodes:
     deployment_name: gpt-35-turbo
     model: gpt-3.5-turbo
     max_tokens: 1000
-    temperature: 0.2
+    temperature: 0.1
     search_query_data: ${get_value_from_ai_search.output}
   connection: HOTBOARD
   api: chat
