@@ -40,20 +40,21 @@
       "source": "prepare_examples.py",
       "function": "prepare_examples"
     },
+    "get_user_recommend_to_json.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "user_request": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "get_user_recommend_to_json.jinja2"
+    },
     "classify_with_llm.jinja2": {
       "type": "llm",
       "inputs": {
-        "url": {
-          "type": [
-            "string"
-          ]
-        },
-        "examples": {
-          "type": [
-            "string"
-          ]
-        },
-        "text_content": {
+        "search_query_data": {
           "type": [
             "string"
           ]
@@ -61,17 +62,29 @@
       },
       "source": "classify_with_llm.jinja2"
     },
-    "convert_to_dict.py": {
+    "get_value_from_ai_search.py": {
       "type": "python",
       "inputs": {
-        "input_str": {
+        "data": {
           "type": [
             "string"
           ]
         }
       },
-      "source": "convert_to_dict.py",
-      "function": "convert_to_dict"
+      "source": "get_value_from_ai_search.py",
+      "function": "get_value_from_ai_search"
+    },
+    "result_data.py": {
+      "type": "python",
+      "inputs": {
+        "data": {
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "source": "result_data.py",
+      "function": "convert_to_json"
     }
   }
 }
